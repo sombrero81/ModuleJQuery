@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="JS/jquery-3.1.1.js" type="text/javascript"></script>
+        <script  type="text/javascript">
+            function chargeJSON(){
+                
+                $.getJSON("JSON/films.json",function(data){
+                    var tabFilms =data.films;
+                    alert("nbre films est:" + tabFilms.length);
+                    for(i=0;i<tabFilms.length;i++){
+                        
+                        var filmAct=tabFilms[i];
+                        alert("film num " +filmAct.id + filmAct.titre);
+                    }
+                    
+                });
+            }
+            
+            function chargeJSONtab(){
+                
+                $.getJSON("JSON/films.json",function(data){
+                    var tabFilms =data.films;
+                    
+                    $('#contenu').append('<br>');
+                    $('#contenu').append("nbre films est:");
+                    $('#contenu').append(tabFilms.length);
+                    $('#contenu').append('<br>');
+                    
+                    for(i=0;i<tabFilms.length;i++){
+                        
+                        var filmAct=tabFilms[i];
+                        $('#contenu').append(filmAct.id);
+                        $('#contenu').append(filmAct.titre);
+                        $('#contenu').append('<br>');
+                    }
+                });
+            }
+            
+            function chargeJSONtab1(){
+                
+                $.getJSON("JSON/films.json",function(data){
+                    var tabFilms =data.films;
+                    var txtToAppend="";
+                    $('#contenu').append('<table>');
+                    
+                   
+                    for(i=0;i<tabFilms.length;i++){
+                        
+                        var filmAct=tabFilms[i];
+                        
+                        txtToAppend +="<tr>";
+                        txtToAppend +="<td>"+ filmAct.id+"</td>";
+                        txtToAppend +="<td>"+filmAct.titre+"</td>";
+                        txtToAppend +="<td>"+filmAct.synopsis+"</td>";
+                        txtToAppend +="</tr>";
+                        
+                    }
+                    $('#contenu').append(txtToAppend);
+                    $('#contenu').append('</table>');
+                });
+            }
+            
+            
+            
+        </script>
+        
+    </head>
+    <body>
+        <span>exercices javascript JSON</span>
+        <br>
+           
+        <input type="button" value="charger json,afficher films" onclick="chargeJSON();"/>
+        <br>
+        <br>
+        <br>
+           
+        <input type="button" value="charger json,afficher tableau" onclick="chargeJSONtab();"/>
+        
+        <br>
+        <br>
+        <br>
+           
+        <input type="button" value="charger json,afficher tableau" onclick="chargeJSONtab1();"/>
+        
+        <div id="contenu">TODO write content</div>
+        
+        
+        
+        
+        
+        
+        
+        
+    </body>
+</html>
