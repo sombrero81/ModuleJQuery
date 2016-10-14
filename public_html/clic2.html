@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="JS/jquery-3.1.1.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            
+            function onclicksurbouton(event){
+                
+                var parametre=(event.target.value);
+                if (parametre=="bouton A"){
+                    
+                     $(event.target).css('background-color','red');
+                //alert(event.target.value);
+                
+                //on change les fonts
+                $(event.target).css('font-size','10px');
+                //alert('clic');
+                } else {
+                    
+                     $(event.target).css('background-color','blue');
+                //alert(event.target.value);
+                
+                //on change les fonts
+                $(event.target).css('font-size','20px');
+                //alert('clic');
+                }
+                    
+                    
+               
+            }
+            
+            
+            function debut(){
+                //alert('tout est chargé');
+                $('input').click(onclicksurbouton );
+                
+            }
+            $(document).ready(debut);
+            
+                
+        </script>
+    </head>
+    <body>
+        <div>TODO write content</div>
+        <br>
+        <br>
+        <input type="button" value="bouton A" ligne="3" colonne="10" couleur="red" />
+        <br>
+        <br>
+        <input type="button" value="bouton B" />
+    </body>
+</html>
